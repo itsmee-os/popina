@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popina | Italian Trattoria - Columbia St, Brooklyn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --wine: #8b3a3a;
+            --wine-dark: #6b2a2a;
+            --cream: #fdf8f4;
+            --olive: #6b7c4a;
+            --charcoal: #3d3632;
+            --white: #ffffff;
+            --gold: #c9a84c;
+            --terracotta: #c4765a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(61, 54, 50, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+        
+        .logo-sub {
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            display: block;
+            color: var(--gold);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-top: -0.25rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 5% 4rem;
+            background: 
+                linear-gradient(135deg, var(--wine-dark) 0%, var(--wine) 50%, var(--wine-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(107, 124, 74, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(201, 168, 76, 0.15) 0%, transparent 40%);
+        }
+        
+        .hero::after {
+            content: "🍝";
+            position: absolute;
+            bottom: 8%;
+            right: 10%;
+            font-size: 5rem;
+            opacity: 0.1;
+            transform: rotate(-15deg);
+        }
+        
+        .hero-content {
+            max-width: 650px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(4rem, 12vw, 7rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+            line-height: 1;
+        }
+        
+        .hero .italian-name {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-family: 'Caveat', cursive;
+        }
+        
+        .hero .tagline {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+        }
+        
+        .hero-cta {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--wine-dark);
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .hero-cta:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 5rem 5%;
+        }
+        
+        .section-title {
+            font-family: 'Caveat', cursive;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: var(--charcoal);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--wine);
+            margin-bottom: 3rem;
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+        
+        /* About Section */
+        .about {
+            background: var(--white);
+            position: relative;
+        }
+        
+        .about::before {
+            content: "♥";
+            position: absolute;
+            top: 2rem;
+            left: 5%;
+            font-size: 10rem;
+            color: var(--wine);
+            opacity: 0.05;
+        }
+        
+        .about-content {
+            max-width: 750px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-content p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-content p::first-letter {
+            font-family: 'Caveat', cursive;
+            font-size: 4rem;
+            float: left;
+            line-height: 0.8;
+            padding-right: 0.5rem;
+            color: var(--wine);
+        }
+        
+        .quote {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            color: var(--wine);
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-top: 1px dashed var(--gold);
+            border-bottom: 1px dashed var(--gold);
+        }
+        
+        /* Menu Section */
+        .menu {
+            background: linear-gradient(180deg, var(--cream) 0%, #f5ebe4 100%);
+        }
+        
+        .menu-intro {
+            text-align: center;
+            max-width: 550px;
+            margin: 0 auto 3rem;
+            color: #666;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .menu-category {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(139, 58, 58, 0.08);
+        }
+        
+        .menu-category h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--wine);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px dotted #e0d8d0;
+        }
+        
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        .menu-item-name {
+            font-weight: 600;
+        }
+        
+        .menu-item-price {
+            color: var(--wine);
+            font-weight: 700;
+            font-family: 'Nunito', sans-serif;
+        }
+        
+        .menu-item-desc {
+            display: block;
+            font-size: 0.85rem;
+            color: #888;
+            margin-top: 0.25rem;
+            font-style: italic;
+        }
+        
+        .menu-item.highlight {
+            background: var(--cream);
+            margin: 0 -1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            border: none;
+        }
+        
+        .menu-item.highlight .menu-item-name {
+            color: var(--wine);
+        }
+        
+        /* Location Section */
+        .location {
+            background: var(--wine-dark);
+            color: var(--white);
+        }
+        
+        .location .section-title,
+        .location .section-subtitle {
+            color: var(--white);
+        }
+        
+        .location .section-subtitle {
+            color: var(--gold);
+        }
+        
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+        
+        .location-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .location-card h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+        
+        .location-card p {
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .neighborhood-note {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--cream);
+            text-align: center;
+        }
+        
+        .contact-card {
+            max-width: 550px;
+            margin: 0 auto;
+            padding: 3rem;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(139, 58, 58, 0.1);
+        }
+        
+        .contact-card h3 {
+            font-family: 'Caveat', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--wine);
+        }
+        
+        .phone {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            text-decoration: none;
+            display: block;
+            margin: 1.5rem 0;
+        }
+        
+        .phone:hover {
+            color: var(--wine);
+        }
+        
+        .address {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 1rem;
+        }
+        
+        .note {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--olive);
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            
+            section {
+                padding: 3rem 5%;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#" class="logo">
+            Popina
+            <span class="logo-sub">Trattoria</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#location">Location</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Popina</h1>
+          <p class="italian-name">~ La Piccola Cucina ~</p>
+            <p class="tagline">Tiny Italian with big heart in Columbia Street Waterfront</p>
+            <a href="#menu" class="hero-cta">View Menu</a>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="section-title">Our Story</h2>
+            <p class="section-subtitle">A family tradition since 2016</p>
+            
+            <p>opina is a tiny Italian trattoria tucked away on Columbia Street in the beautiful Columbia Street Waterfront District. With just 24 seats, we focus on what matters: honest food, warm hospitality, and bringing the flavors of Italy to Brooklyn.</p>
+            <p>Our pasta is made fresh daily. Our sauces simmer for hours. Our pizza crust ferments for 48 hours. We believe in the power of simple ingredients—San Marzano tomatoes, imported cheeses, fresh herbs—treated with respect.</p>
+            
+            <p class="quote">"Where every dish is made with amore"</p>
+            
+            <p>Whether you're grabbing a quick lunch at the counter or settling in for a leisurely dinner, you'll feel like family. That's the Popina way.</p>
+        </div>
+    </section>
+
+    <section class="menu" id="menu">
+        <h2 class="section-title">Il Nostro Menu</h2>
+        <p class="section-subtitle">Our Menu</p>
+        
+        <p class="menu-intro">We source from local farms and import key ingredients from Italy. Menu changes seasonally.</p>
+        
+        <div class="menu-grid">
+            <div class="menu-category">
+                <h3>🍝 Pasta</h3>
+                <div class="menu-item highlight">
+                    <div>
+                        <div class="menu-item-name">Cacio e Pepe</div>
+                        <div class="menu-item-desc">Roman classic: pecorino, black pepper</div>
+                    </div>
+                    <div class="menu-item-price">$18</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Bolognese</div>
+                        <div class="menu-item-desc">Slow-cooked meat sauce, pappardelle</div>
+                    </div>
+                    <div class="menu-item-price">$22</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Pomodoro</div>
+                        <div class="menu-item-desc">San Marzano sauce, fresh mozzarella</div>
+                    </div>
+                    <div class="menu-item-price">$16</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Gnocchi</div>
+                        <div class="menu-item-desc">Potato dumplings, brown butter & sage</div>
+                    </div>
+                    <div class="menu-item-price">$19</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Spaghetti Carbonara</div>
+                        <div class="menu-item-desc">Guanciale, egg yolk, pecorino</div>
+                    </div>
+                    <div class="menu-item-price">$20</div>
+                </div>
+            </div>
+            
+            <div class="menu-category">
+                <h3>🍕 Pizza</h3>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Margherita</div>
+                        <div class="menu-item-desc">San Marzano, mozzarella, basil</div>
+                    </div>
+                    <div class="menu-item-price">$18</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Pepperoni</div>
+                        <div class="menu-item-desc">Spicy salami, mozzarella</div>
+                    </div>
+                    <div class="menu-item-price">$21</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Salsiccia</div>
+                        <div class="menu-item-desc">Fennel sausage, broccoli rabe</div>
+                    </div>
+                    <div class="menu-item-price">$22</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Bianco</div>
+                        <div class="menu-item-desc">Ricotta, garlic, rosemary, honey</div>
+                    </div>
+                    <div class="menu-item-price">$19</div>
+                </div>
+            </div>
+            
+            <div class="menu-category">
+                <h3>🥗 Antipasti</h3>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Bruschetta</div>
+                        <div class="menu-item-desc">Toasted bread, tomatoes, garlic, basil</div>
+                    </div>
+                    <div class="menu-item-price">$10</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Carpaccio</div>
+                        <div class="menu-item-desc">Thin beef, arugula, parmesan, lemon</div>
+                    </div>
+                    <div class="menu-item-price">$16</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Caprese</div>
+                        <div class="menu-item-desc">Fresh mozzarella, tomato, basil, EVOO</div>
+                    </div>
+                    <div class="menu-item-price">$14</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Olives</div>
+                        <div class="menu-item-desc">Marinated Italian olives</div>
+                    </div>
+                    <div class="menu-item-price">$8</div>
+                </div>
+            </div>
+            
+            <div class="menu-category">
+                <h3>🍷 Dolci & Drinks</h3>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Tiramisu</div>
+                        <div class="menu-item-desc">Classic espresso-soaked dessert</div>
+                    </div>
+                    <div class="menu-item-price">$10</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Panna Cotta</div>
+                        <div class="menu-item-desc">Vanilla, seasonal fruit</div>
+                    </div>
+                    <div class="menu-item-price">$9</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">Espresso</div>
+                        <div class="menu-item-desc">Double shot</div>
+                    </div>
+                    <div class="menu-item-price">$4</div>
+                </div>
+                <div class="menu-item">
+                    <div>
+                        <div class="menu-item-name">House Wine</div>
+                        <div class="menu-item-desc">Red or white, by the glass</div>
+                    </div>
+                    <div class="menu-item-price">$12</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="location" id="location">
+        <h2 class="section-title">Venite a Trovarci</h2>
+        <p class="section-subtitle">Come Find Us</p>
+        
+        <div class="location-grid">
+            <div class="location-card">
+                <h3>📍 Address</h3>
+                <p>127 Columbia Street<br>Brooklyn, NY 11231</p>
+            </div>
+            <div class="location-card">
+                <h3>🕐 Hours</h3>
+                <p>Tue-Thu: 11am - 10pm<br>Fri-Sat: 11am - 11pm<br>Sun: 11am - 9pm<br>Closed Monday</p>
+            </div>
+            <div class="location-card">
+                <h3>📞</h3>
+                <p>Reservations accepted<br>Walk-ins always welcome<br>Private events available</p>
+            </div>
+        </div>
+        
+        <div class="neighborhood-note">
+            Located in the charming Columbia Street Waterfront District, just blocks from the waterfront park.
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-card">
+            <h3>Parliamo</h3>
+            <a href="tel:+13475559876" class="phone">(347) 555-9876</a>
+          <p class="address">127 Columbia Street, Brooklyn, NY 11231</p>
+            <p class="note">✦ Open for dinner Tuesday-Sunday ✦<br>Open for lunch Friday-Sunday</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Popina Trattoria. All rights reserved.<br>Made with ❤️ in Brooklyn</p>
+    </footer>
+</body>
+</html>
